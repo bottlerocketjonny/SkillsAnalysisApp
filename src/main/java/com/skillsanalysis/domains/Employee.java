@@ -7,6 +7,15 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 public class Employee {
 	
@@ -30,6 +39,10 @@ public class Employee {
 	private Long employerId;
 	
 	private String companyName;
+
+	public Employee(Employee e) {
+		
+	}
 	
 	
 
