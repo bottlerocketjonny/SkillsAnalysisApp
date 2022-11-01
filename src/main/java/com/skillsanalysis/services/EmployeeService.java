@@ -2,6 +2,7 @@ package com.skillsanalysis.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,14 @@ public class EmployeeService {
 	
 	public Employee getEmployeeById(Long id) throws EmployeeNotFoundException {
 		return this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new);	
+	}
+	
+	public EmployeeDTO getOneByLastName(String lastName) throws EmployeeNotFoundException {
+		Optional<Employee> search = repo.findByLastName(lastName);
+		if (search.isPresent()) {
+			return new EmployeeDTO(search.get());
+		}
+		throw new EmployeeNotFoundException();
 	}
 	
 	public List<EmployeeDTO> getAllEmployees() {										// update with dto when needed in the future

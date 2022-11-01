@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skillsanalysis.domains.Employee;
 import com.skillsanalysis.domains.EmployeeDTO;
+import com.skillsanalysis.exceptions.EmployeeNotFoundException;
 import com.skillsanalysis.services.EmployeeService;
 
 @RestController
@@ -39,6 +40,12 @@ public class EmployeeController {
 	@GetMapping("/getOne/{id}")
 	public Employee getEmployeebyId(@PathVariable("id") Long id) {			
 		return service.getEmployeeById(id);
+	}
+	
+	// get one by last name
+	@GetMapping("/getOneByLastName/{lastName}")
+	public EmployeeDTO getOneByLastName(@PathVariable String lastName) throws EmployeeNotFoundException {
+		return service.getOneByLastName(lastName);
 	}
 	
 	// update
