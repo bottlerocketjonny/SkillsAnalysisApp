@@ -34,7 +34,7 @@ public class EmployeeService {
 		throw new EmployeeNotFoundException();
 	}
 	
-	public List<EmployeeDTO> getAllEmployees() {										// update with dto when needed in the future
+	public List<EmployeeDTO> getAllEmployees() {										
 		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
 		repo.findAll().forEach(e -> employeeDTOList.add(new EmployeeDTO(e)));
 		return employeeDTOList;
