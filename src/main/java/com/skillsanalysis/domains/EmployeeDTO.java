@@ -1,9 +1,5 @@
 package com.skillsanalysis.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 
 import lombok.AllArgsConstructor;
@@ -19,13 +15,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-@Entity
-public class Employee {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
+public class EmployeeDTO {
+
 	private String firstName;
 	
 	private String lastName;
@@ -39,6 +30,13 @@ public class Employee {
 	
 	private String companyName;
 	
+	public EmployeeDTO(Employee employee) {
+		this.firstName = employee.getFirstName();
+		this.lastName = employee.getLastName();
+		this.email = employee.getEmail();
+		this.address = employee.getAddress();
+		this.role = employee.getRole();
+		this.companyName = employee.getCompanyName();
+	}
 	
-
 }

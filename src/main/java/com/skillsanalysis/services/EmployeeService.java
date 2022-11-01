@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillsanalysis.domains.Employee;
+import com.skillsanalysis.domains.EmployeeDTO;
 import com.skillsanalysis.exceptions.EmployeeNotFoundException;
 import com.skillsanalysis.repos.EmployeeRepo;
 
@@ -24,28 +25,27 @@ public class EmployeeService {
 		return this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new);	
 	}
 	
-	public List<Employee> getAllEmployees() {							// update with dto
-		List<Employee> output = new ArrayList<Employee>();
-		repo.findAll().forEach(e -> output.add(new Employee(e)));
-		return output;
+	public List<EmployeeDTO> getAllEmployees() {										// update with dto when needed in the future
+		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
+		repo.findAll().forEach(e -> employeeDTOList.add(new EmployeeDTO(e)));
+		return employeeDTOList;
 	}
 	
 	public Employee updateEmployee(Long id, Employee employee) {
-		Employee exists = repo.findById(id).orElse(new Employee());
+		Employee exists = repo.findById(id).orElseThrow(EmployeeNotFoundException::new);
 
 		exists.setFirstName(employee.getFirstName());
-		exists.setFirstName(employee.getLastName());
+		exists.setLastName(employee.getLastName());
 		exists.setEmail(employee.getEmail());
-		exists.setFirstName(employee.getAddress());
+		exists.setAddress(employee.getAddress());
 		exists.setRole(employee.getRole());
 		exists.setCompanyName(employee.getCompanyName());
 
 		return repo.save(exists);
 	}
 	
-	public boolean deleteEmployee(Long id) throws EmployeeNotFoundException {				
+	public boolean deleteEmployee(Long id) {				
 		
-		repo.findById(id).orElseThrow(EmployeeNotFoundException::new);
 		repo.deleteById(id);
 		return (!repo.existsById(id));
 	}

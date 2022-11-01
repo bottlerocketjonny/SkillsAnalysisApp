@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillsanalysis.domains.Employee;
+import com.skillsanalysis.domains.EmployeeDTO;
 import com.skillsanalysis.services.EmployeeService;
 
 @RestController
@@ -30,13 +31,13 @@ public class EmployeeController {
 	
 	// get all
 	@GetMapping("/getAll")
-	public List<Employee> getAllEmployees() {
+	public List<EmployeeDTO> getAllEmployees() {
 		return service.getAllEmployees();
 	}
 	
 	// get one by id
 	@GetMapping("/getOne/{id}")
-	public Employee getEmployeebyId(@PathVariable("id") Long id) {					// throw exception here if not found
+	public Employee getEmployeebyId(@PathVariable("id") Long id) {			
 		return service.getEmployeeById(id);
 	}
 	
