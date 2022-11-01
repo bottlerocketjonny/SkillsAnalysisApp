@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillsanalysis.domains.Employee;
+import com.skillsanalysis.exceptions.EmployeeNotFoundException;
 import com.skillsanalysis.repos.EmployeeRepo;
 
 @Service
@@ -19,8 +20,8 @@ public class EmployeeService {
 		return this.repo.save(employee);
 	}
 	
-	public Employee getEmployeeById(Long id) {
-		return this.repo.findById(id).orElseThrow();					// update with custom exception
+	public Employee getEmployeeById(Long id) throws EmployeeNotFoundException {
+		return this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new);	
 	}
 	
 	public List<Employee> getAllEmployees() {							// update with dto
@@ -42,7 +43,9 @@ public class EmployeeService {
 		return repo.save(exists);
 	}
 	
-	public boolean deleteEmployee(Long id) {
+	public boolean deleteEmployee(Long id) throws EmployeeNotFoundException {				
+		
+		repo.findById(id).orElseThrow(EmployeeNotFoundException::new);
 		repo.deleteById(id);
 		return (!repo.existsById(id));
 	}
