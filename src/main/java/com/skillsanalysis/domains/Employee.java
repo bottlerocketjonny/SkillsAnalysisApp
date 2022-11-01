@@ -33,6 +33,8 @@ public class Employee {
 	@Email(message = "This email address is invalid")
 	private String email;
 	
+	private String dob;
+	
 	private String address;
 	
 	private String role;
