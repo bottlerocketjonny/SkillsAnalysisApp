@@ -15,7 +15,7 @@ import com.skillsanalysis.domains.SoftSkills;
 import com.skillsanalysis.services.SoftSkillsService;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/softskills")
 public class SoftSkillsController {
 	
 	@Autowired
