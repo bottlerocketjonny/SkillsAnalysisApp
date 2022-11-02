@@ -23,7 +23,7 @@ public class SoftSkills {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long softSkillsId;
 	
 	private String communication;
 	
