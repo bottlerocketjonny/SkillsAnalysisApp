@@ -34,8 +34,8 @@ public class EmployeeService {
 		throw new EmployeeNotFoundException();
 	}
 	
-	public List<Employee> getAllEmployees() {
-		return this.repo.findAll().stream().collect(Collectors.toList());
+	public List<EmployeeDTO> getAllEmployees() {
+		return this.repo.findAll().stream().map(EmployeeDTO::new).collect(Collectors.toList());
 	}
 	
 	public Employee updateEmployee(Long id, Employee employee) {

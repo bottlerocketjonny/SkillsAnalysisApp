@@ -1,5 +1,7 @@
 package com.skillsanalysis.domains;
 
+import java.util.List;
+
 import javax.validation.constraints.Email;
 
 import lombok.EqualsAndHashCode;
@@ -25,6 +27,8 @@ public class EmployeeDTO {
 	private String role;
 	
 	private String companyName;
+	
+	private List<SoftSkillsDTO> softSkills;
 	
 	public EmployeeDTO(Employee employee) {
 		this.firstName = employee.getFirstName();

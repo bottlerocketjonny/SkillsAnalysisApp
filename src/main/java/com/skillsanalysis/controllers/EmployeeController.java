@@ -32,7 +32,7 @@ public class EmployeeController {
 	
 	// get all
 	@GetMapping("/getAll")
-	public List<Employee> getAllEmployees() {
+	public List<EmployeeDTO> getAllEmployees() {
 		return service.getAllEmployees();
 	}
 	
