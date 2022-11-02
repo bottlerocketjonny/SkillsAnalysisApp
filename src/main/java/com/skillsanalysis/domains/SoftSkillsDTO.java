@@ -15,15 +15,15 @@ public class SoftSkillsDTO {
 
 	private LocalDate date;
 
-	private String communication;
+	private int communication;
 
-	private String problemSolving;
+	private int problemSolving;
 
-	private String leadership;
+	private int leadership;
 
-	private String punctuality;
+	private int punctuality;
 
-	private String teamPlayer;
+	private int teamPlayer;
 
 	public SoftSkillsDTO(SoftSkills softSkills) {
 		this.date = softSkills.getDate();
