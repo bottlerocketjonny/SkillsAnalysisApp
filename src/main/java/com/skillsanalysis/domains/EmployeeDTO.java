@@ -1,6 +1,7 @@
 package com.skillsanalysis.domains;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.constraints.Email;
 
@@ -37,6 +38,7 @@ public class EmployeeDTO {
 		this.address = employee.getAddress();
 		this.role = employee.getRole();
 		this.companyName = employee.getCompanyName();
+		this.softSkills = employee.getSoftSkills().stream().map(SoftSkillsDTO::new).collect(Collectors.toList());
 	}
 	
 }
