@@ -7,9 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -43,15 +43,20 @@ class SkillsAnalysisApplicationTests {
 	@Autowired
 	private ObjectMapper mapper;
 	
-	private final List<Employee> DB_DATA = new ArrayList<Employee>(Arrays.asList
-			(new Employee(1L, "Jonny", "Coddington", "j.coddington@gmail.com", "28/07/1993", "123 Fake St, London, SE3 4DY", "Java Developer", "Peach Ltd"), 
-			new Employee(2L, "Jonny", "Coddington", "j.coddington@gmail.com", "28/07/1993", "123 Fake St, London, SE3 4DY", "Java Developer", "Peach Ltd")));
+	private List<Employee> DB_DATA;
 	
-	private final List<EmployeeDTO> RESPONSE_DATA = new ArrayList<EmployeeDTO>(Arrays.asList
-			(new EmployeeDTO(DB_DATA.get(0)), new EmployeeDTO(DB_DATA.get(1))));
+	private List<EmployeeDTO> RESPONSE_DATA;
 	
 	// test getAll
-	
+	@BeforeEach
+	void setup() {
+		DB_DATA = new ArrayList<>();
+		DB_DATA.add(new Employee(1L, null, "Jonny", "Coddington", "j.coddington@gmail.com", "28/07/1993", "123 Fake St, London, SE3 4DY", "Java Developer", "Peach Ltd"));
+		DB_DATA.add(new Employee(2L, null, "Jonny", "Coddington", "j.coddington@gmail.com", "28/07/1993", "123 Fake St, London, SE3 4DY", "Java Developer", "Peach Ltd"));
+		
+		RESPONSE_DATA = DB_DATA.stream().map(EmployeeDTO::new).toList();
+		
+	}
 	@Test
 	public void testGetAll() throws IllegalStateException, UnsupportedEncodingException, Exception {
 		String testResult = mockMvc.perform(get("/employee/getAll")).andExpect

@@ -22,8 +22,8 @@ public class EmployeeService {
 		return this.repo.save(employee);
 	}
 	
-	public Employee getEmployeeById(Long id) throws EmployeeNotFoundException {
-		return this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new);	
+	public EmployeeDTO getEmployeeById(Long id) throws EmployeeNotFoundException {
+		return new EmployeeDTO(this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new));	
 	}
 	
 	public EmployeeDTO getOneByLastName(String lastName) throws EmployeeNotFoundException {

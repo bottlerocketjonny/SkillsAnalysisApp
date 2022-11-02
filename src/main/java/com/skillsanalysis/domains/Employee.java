@@ -1,5 +1,6 @@
 package com.skillsanalysis.domains;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -39,7 +40,7 @@ public class Employee {
 	@Email(message = "This email address is invalid")
 	private String email;
 	
-	private String dob;
+	private LocalDate dob;
 	
 	private String address;
 	
