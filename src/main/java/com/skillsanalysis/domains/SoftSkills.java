@@ -34,14 +34,14 @@ public class SoftSkills {
 	
 	private LocalDate date = LocalDate.now();
 	
-	private String communication;
+	private int communication;
 	
-	private String problemSolving;
+	private int problemSolving;
 	
-	private String leadership;
+	private int leadership;
 	
-	private String punctuality;
+	private int punctuality;
 	
-	private String teamPlayer;
+	private int teamPlayer;
 
 }
