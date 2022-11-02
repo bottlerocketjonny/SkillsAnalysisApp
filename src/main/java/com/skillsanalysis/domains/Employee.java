@@ -1,9 +1,12 @@
 package com.skillsanalysis.domains;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +28,9 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@OneToMany(mappedBy = "employee")
+	private List<SoftSkills> softSkills;
 	
 	private String firstName;
 	
