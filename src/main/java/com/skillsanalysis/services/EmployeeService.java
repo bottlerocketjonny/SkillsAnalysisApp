@@ -1,8 +1,8 @@
 package com.skillsanalysis.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,10 +34,8 @@ public class EmployeeService {
 		throw new EmployeeNotFoundException();
 	}
 	
-	public List<EmployeeDTO> getAllEmployees() {										
-		List<EmployeeDTO> employeeDTOList = new ArrayList<EmployeeDTO>();
-		repo.findAll().forEach(e -> employeeDTOList.add(new EmployeeDTO(e)));
-		return employeeDTOList;
+	public List<Employee> getAllEmployees() {
+		return this.repo.findAll().stream().collect(Collectors.toList());
 	}
 	
 	public Employee updateEmployee(Long id, Employee employee) {
