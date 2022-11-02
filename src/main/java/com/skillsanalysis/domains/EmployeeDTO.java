@@ -16,6 +16,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class EmployeeDTO {
 
+	private Long id;
+	
 	private String firstName;
 	
 	private String lastName;
@@ -32,6 +34,7 @@ public class EmployeeDTO {
 	private List<SoftSkillsDTO> softSkills;
 	
 	public EmployeeDTO(Employee employee) {
+		this.id = employee.getId();
 		this.firstName = employee.getFirstName();
 		this.lastName = employee.getLastName();
 		this.email = employee.getEmail();

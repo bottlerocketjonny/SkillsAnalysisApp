@@ -16,18 +16,18 @@ public class SoftSkillsService {
 		return this.repo.save(softSkills);
 	}
 
-//	public SoftSkills updateSoftSkills(Long id, SoftSkills softSkills) {
-//		SoftSkills exists = repo.findById(id).orElse(null);
-//
-//		exists.setFirstName(employee.getFirstName());
-//		exists.setLastName(employee.getLastName());
-//		exists.setEmail(employee.getEmail());
-//		exists.setAddress(employee.getAddress());
-//		exists.setRole(employee.getRole());
-//		exists.setCompanyName(employee.getCompanyName());
-//
-//		return repo.save(exists);
-//	}
+	public SoftSkills updateSoftSkills(Long id, SoftSkills softSkills) {
+		SoftSkills exists = repo.findById(id).orElse(new SoftSkills());
+
+		exists.setCommunication(softSkills.getCommunication());
+		exists.setProblemSolving(softSkills.getProblemSolving());
+		exists.setLeadership(softSkills.getLeadership());
+		exists.setPunctuality(softSkills.getPunctuality());
+		exists.setTeamPlayer(softSkills.getTeamPlayer());
+		exists.setDate(softSkills.getDate());
+
+		return repo.save(exists);
+	}
 	
 	public boolean deleteSoftSkills(Long id) {				
 		
