@@ -13,6 +13,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class SoftSkillsDTO {
 
+	private Long id;
+	
 	private LocalDate date;
 
 	private int communication;
@@ -26,6 +28,7 @@ public class SoftSkillsDTO {
 	private int teamPlayer;
 
 	public SoftSkillsDTO(SoftSkills softSkills) {
+		this.id = softSkills.getId();
 		this.date = softSkills.getDate();
 		this.communication = softSkills.getCommunication();
 		this.problemSolving = softSkills.getProblemSolving();

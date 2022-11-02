@@ -44,8 +44,9 @@ public class EmployeeService {
 	
 	// update employee
 	public Employee updateEmployee(Long id, Employee employee) {
-		Employee exists = repo.findById(id).orElseThrow(EmployeeNotFoundException::new);
+		Employee exists = repo.findById(id).orElse(new Employee());
 
+		exists.setSoftSkills(employee.getSoftSkills());
 		exists.setFirstName(employee.getFirstName());
 		exists.setLastName(employee.getLastName());
 		exists.setEmail(employee.getEmail());
