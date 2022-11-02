@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillsanalysis.domains.SoftSkills;
-import com.skillsanalysis.services.EmployeeService;
+import com.skillsanalysis.services.SoftSkillsService;
 
 @RestController
 @RequestMapping("/employee")
 public class SoftSkillsController {
 	
 	@Autowired
-	EmployeeService service;
+	SoftSkillsService service;
 	
 	// create
 	@PostMapping("/create")
@@ -40,11 +39,11 @@ public class SoftSkillsController {
 		return service.getSoftSkillsById(id);
 	}
 	
-	// update
-	@PutMapping("/update/{id}")
-	public SoftSkills updateSoftSkills(@RequestBody SoftSkills softSkills, @PathVariable("id") Long id) {
-		return service.updateSoftSkills(id, softSkills);
-	}
+//	// update
+//	@PutMapping("/update/{id}")
+//	public SoftSkills updateSoftSkills(@RequestBody SoftSkills softSkills, @PathVariable("id") Long id) {
+//		return service.updateSoftSkills(id, softSkills);
+//	}
 	
 	// delete
 	@DeleteMapping("/delete/{id}")
