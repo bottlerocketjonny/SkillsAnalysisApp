@@ -29,7 +29,6 @@ public class SoftSkills {
 	private Long id;
 	
 	@ManyToOne
-//	@JsonBackReference
 	private Employee employee;
 	
 	private LocalDate date = LocalDate.now();

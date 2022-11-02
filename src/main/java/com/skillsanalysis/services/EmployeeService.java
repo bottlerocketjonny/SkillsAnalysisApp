@@ -18,14 +18,17 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepo repo;
 	
+	// create
 	public Employee createEmployee(Employee employee) {
 		return this.repo.save(employee);
 	}
 	
+	// get employee by id
 	public EmployeeDTO getEmployeeById(Long id) throws EmployeeNotFoundException {
 		return new EmployeeDTO(this.repo.findById(id).orElseThrow(EmployeeNotFoundException::new));	
 	}
 	
+	// get employee by last name
 	public EmployeeDTO getOneByLastName(String lastName) throws EmployeeNotFoundException {
 		Optional<Employee> search = repo.findByLastName(lastName);
 		if (search.isPresent()) {
@@ -34,16 +37,19 @@ public class EmployeeService {
 		throw new EmployeeNotFoundException();
 	}
 	
+	// get all employees
 	public List<EmployeeDTO> getAllEmployees() {
 		return this.repo.findAll().stream().map(EmployeeDTO::new).collect(Collectors.toList());
 	}
 	
+	// update employee
 	public Employee updateEmployee(Long id, Employee employee) {
 		Employee exists = repo.findById(id).orElseThrow(EmployeeNotFoundException::new);
 
 		exists.setFirstName(employee.getFirstName());
 		exists.setLastName(employee.getLastName());
 		exists.setEmail(employee.getEmail());
+		exists.setDob(employee.getDob());
 		exists.setAddress(employee.getAddress());
 		exists.setRole(employee.getRole());
 		exists.setCompanyName(employee.getCompanyName());
@@ -51,6 +57,7 @@ public class EmployeeService {
 		return repo.save(exists);
 	}
 	
+	// delete employee
 	public boolean deleteEmployee(Long id) {				
 		
 		repo.deleteById(id);
