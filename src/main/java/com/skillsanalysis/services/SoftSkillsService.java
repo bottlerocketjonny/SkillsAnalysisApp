@@ -1,8 +1,5 @@
 package com.skillsanalysis.services;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,15 +15,7 @@ public class SoftSkillsService {
 	public SoftSkills createSoftSkills(SoftSkills softSkills) {
 		return this.repo.save(softSkills);
 	}
-	
-	public SoftSkills getSoftSkillsById(Long id) {
-		return this.repo.findById(id).orElse(null);	
-	}
-	
-	public List<SoftSkills> getAllSoftSkills() {
-		return this.repo.findAll().stream().collect(Collectors.toList());
-	}
-	
+
 //	public SoftSkills updateSoftSkills(Long id, SoftSkills softSkills) {
 //		SoftSkills exists = repo.findById(id).orElse(null);
 //
