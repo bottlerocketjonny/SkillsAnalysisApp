@@ -16,5 +16,5 @@ CREATE TABLE soft_skills
 	punctuality INTEGER NOT NULL, 
 	team_player INTEGER NOT NULL, 
 	employee_id BIGINT, 
-	FOREIGN KEY (employee_id) REFERENCES employee(id)
+	FOREIGN KEY (employee_id) REFERENCES employee(id) ON DELETE CASCADE
 );
