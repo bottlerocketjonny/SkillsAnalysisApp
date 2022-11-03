@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.UnsupportedEncodingException;
@@ -96,7 +97,7 @@ class EmployeeIntegrationTests {
 		String testResult = mockMvc.perform(get("/employee/getOne/1")).andExpect(status().isOk()).andReturn()
 				.getResponse().getContentAsString();
 
-		assertThat(testResult).isEqualTo(mapper.writeValueAsString(testEmployeesResponse));
+		assertThat(testResult).isEqualTo(mapper.writeValueAsString(testEmployeesResponse.get(0)));
 
 	}
 
@@ -107,20 +108,18 @@ class EmployeeIntegrationTests {
 		LocalDate dob2 = LocalDate.of(1993, 01, 22);
 		Employee test = new Employee(1L, softSkills, "Jonny", "Coddington", "j.coddington@gmail.com", dob2,
 				"69 The Road, London, SE23 5RT", "Python Developer", "Peach Ltd");
+		EmployeeDTO testDTO = new EmployeeDTO(test);
 		
-		String testResult = mockMvc
-				.perform(put("/employee/update/").contentType(MediaType.APPLICATION_JSON)
+		mockMvc.perform(put("/employee/update/1").contentType(MediaType.APPLICATION_JSON)
 						.content(mapper.writeValueAsString(test)))
-				.andExpect(status().isOk()).andReturn().getResponse().getContentAsString();
-
-		assertThat(testResult).isEqualTo(mapper.writeValueAsString(test));
+				.andExpect(status().isOk()).andExpect(content().json(this.mapper.writeValueAsString(testDTO)));
 	}
 	
 	// test delete
 	@Test
 	public void testDelete() throws Exception {
 		
-		this.mockMvc.perform(delete("/employee/delete/{id}", "1").contentType(MediaType.APPLICATION_JSON)
+		this.mockMvc.perform(delete("/employee/delete/1").contentType(MediaType.APPLICATION_JSON)
 						.accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 		
 	//	assertThat(testResult).isEqualTo(mapper.writeValueAsString(null));

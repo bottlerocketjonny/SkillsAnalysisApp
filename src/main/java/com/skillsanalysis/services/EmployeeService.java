@@ -43,10 +43,9 @@ public class EmployeeService {
 	}
 	
 	// update employee
-	public Employee updateEmployee(Long id, Employee employee) {
+	public EmployeeDTO updateEmployee(Long id, Employee employee) {
 		Employee exists = repo.findById(id).orElse(new Employee());
 
-		exists.setSoftSkills(employee.getSoftSkills());
 		exists.setFirstName(employee.getFirstName());
 		exists.setLastName(employee.getLastName());
 		exists.setEmail(employee.getEmail());
@@ -55,7 +54,7 @@ public class EmployeeService {
 		exists.setRole(employee.getRole());
 		exists.setCompanyName(employee.getCompanyName());
 
-		return repo.save(exists);
+		return new EmployeeDTO(repo.save(exists));
 	}
 	
 	// delete employee
