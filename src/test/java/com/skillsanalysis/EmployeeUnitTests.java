@@ -103,7 +103,7 @@ public class EmployeeUnitTests {
 	@Test 
 	void testDelete() {
 		
-		Mockito.when(this.repo.existsById(id)).thenReturn(false);
+		Mockito.when(this.repo.existsById(id)).thenReturn(true);
 		
 		assertTrue(this.service.deleteEmployee(id));
 		

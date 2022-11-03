@@ -56,7 +56,7 @@ public class EmployeeController {
 	
 	// delete
 	@DeleteMapping("/delete/{id}")
-	public Boolean deleteEmployee(@PathVariable("id") Long id) throws EmployeeNotFoundException {
+	public Boolean deleteEmployee(@PathVariable("id") Long id) {
 		return service.deleteEmployee(id);
 	}
 
