@@ -59,8 +59,11 @@ public class EmployeeService {
 	
 	// delete employee
 	public boolean deleteEmployee(Long id) {				
-		
-		repo.deleteById(id);
-		return (!repo.existsById(id));
+
+		if (repo.existsById(id)) {
+			repo.deleteById(id);
+			return true;
+		}
+		return false;
 	}
 }
