@@ -5,7 +5,7 @@ RESTful API built using Java and Spring Boot.
 
 For this software development project we were required to build an API for the backend of an application that communicates and stores data within a relational database. The API must have CRUD functionality (create, read, update, delete) and be fully tested using automated integration and unit tests. 
 
-In order to implement this it was necessary to use a variety of technologies learnt during our time on the QA DfE Software Specialism course, including Java, Spring Boot, Maven, H2/SQL, Junit and Mockito, as well as demonstrating version control and project management using industry standard software such as Git/GitHub and Jira. 
+In order to implement this it was necessary to use a variety of technologies learnt during our time on the QA DfE Software Specialism course, including Java, Spring Boot, Maven, H2/SQL, Lombok, Junit and Mockito, as well as demonstrating version control and project management using industry standard software such as Git/GitHub and Jira. 
 
 After some research and planning, I decided to work on an API that would become part of a full stack application that employers/HR can use to track their employees’ soft skills and tech skills. This information would be displayed to the user in the form of a radar chart, giving the employer visual feedback of their employees’ strengths and weaknesses. 
 
