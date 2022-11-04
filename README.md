@@ -35,6 +35,10 @@ Another idea that I had was to make an evaluation form with questions and a form
 
 One final idea would be to persist the data to a cloud based database, such as GCP, AWS or Azure. This would mean the app would be able to be deployed on the internet without users having to manage their own database locally, and therefore increase its usability. 
 
+**ERD diagram**
+
+![ERD](https://i.postimg.cc/sDpRT6py/ERD-diagram.png)
+
 **Postman request screenshots**
 
 ![createEmployee](https://i.postimg.cc/x1rrgFyP/create-employee.png)
