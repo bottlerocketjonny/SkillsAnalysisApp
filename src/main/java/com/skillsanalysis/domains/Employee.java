@@ -3,6 +3,7 @@ package com.skillsanalysis.domains;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +31,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "employee")
+	@OneToMany(mappedBy = "employee", cascade = {CascadeType.REMOVE})
 	private List<SoftSkills> softSkills;
 	
 	private String firstName;
