@@ -20,7 +20,7 @@ import com.skillsanalysis.services.EmployeeService;
 
 @RestController
 @RequestMapping("/employee")
-@CrossOrigin
+@CrossOrigin("http://localhost:3000/")
 public class EmployeeController {
 	
 	@Autowired
