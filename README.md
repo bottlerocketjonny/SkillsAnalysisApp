@@ -2,6 +2,7 @@
 RESTful API built using Java and Spring Boot.
 
 Deployed API: https://skillsanalysisapp-production.up.railway.app/
+
 Deployed Frontend: https://skillsanalysisfrontend-production.up.railway.app/
 
 **Why are we doing this?**
