@@ -1,8 +1,7 @@
 # SkillsAnalysisAPI
-RESTful API built using Java and Spring Boot.
+RESTful API built using Java and Spring Boot. 80%+ test coverage.
 
-Deployed API: https://skillsanalysisapp-production.up.railway.app/
-
+Deployed API: https://skillsanalysisapp-production.up.railway.app/<br>
 Deployed Frontend: https://skillsanalysisfrontend-production.up.railway.app/
 
 **Why are we doing this?**
