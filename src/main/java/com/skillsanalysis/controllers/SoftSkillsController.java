@@ -17,7 +17,6 @@ import com.skillsanalysis.domains.SoftSkillsDTO;
 import com.skillsanalysis.services.SoftSkillsService;
 
 @RestController
-@CrossOrigin("https://skillsanalysisfrontend-production.up.railway.app/") 
 @RequestMapping("/softskills")
 public class SoftSkillsController {
 	

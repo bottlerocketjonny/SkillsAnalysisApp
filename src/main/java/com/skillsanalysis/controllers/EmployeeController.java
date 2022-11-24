@@ -19,7 +19,6 @@ import com.skillsanalysis.exceptions.EmployeeNotFoundException;
 import com.skillsanalysis.services.EmployeeService;
 
 @RestController
-@CrossOrigin("http://localhost:3000") 
 @RequestMapping("/employee")
 public class EmployeeController {
 	
