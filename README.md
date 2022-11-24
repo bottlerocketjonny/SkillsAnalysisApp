@@ -1,6 +1,9 @@
 # SkillsAnalysisAPI
 RESTful API built using Java and Spring Boot.
 
+Deployed API: https://skillsanalysisapp-production.up.railway.app/
+Deployed Frontend: https://skillsanalysisfrontend-production.up.railway.app/
+
 **Why are we doing this?**
 
 For this software development project we were required to build an API for the backend of an application that communicates and stores data within a relational database. The API must have CRUD functionality (create, read, update, delete) and be fully tested using automated integration and unit tests. 
@@ -21,19 +24,13 @@ Despite feeling mostly confident, there were still some aspects of the project t
 
 **What went well? What didn't go as planned?**
 
-Overall, I am really happy with how this project has turned out and I’m excited to demonstrate its functionality to potential employers. The highlights for me were that I managed to get two tables working together without too many issues and learned a lot about how databases are built during the process. I’m also pleased that I managed to successfully implement the feature-branch model in my Git usage - something I haven’t attempted previously. 
-
-On the other hand, with this being the first full scale project that I have undertaken since my career change to software development, I did encounter a few minor bottlenecks . Initially, I got a bit confused when creating the ERD diagram and deciding the relationships between the tables that were needed for the application (one-to-many, many-to-one etc). This was discussed with the tutor during the initial stages of the project and as a result I now have more clarity on the subject. I also had a bit of trouble with my services update method that took a lot of debugging to get working correctly. 
+Overall, I am really happy with how this project has turned out and I’m excited to demonstrate its functionality to potential employers. The highlights for me were that I managed to get two tables working together without too many issues and learned a lot about how databases are built during the process. I’m also pleased that I managed to successfully implement the feature-branch model in my Git usage.
 
 **Possible improvements for future revisions of the project?**
 
-One improvement for future revisions would be to build a front end for the application. This could be implemented using a JavaScript library such as React to create an attractive user interface that would seamlessly interact with the backend API that has already been developed. 
-
-Further to this, I would also like to add a feature where you can view the employee data as a radar chart. This would add a visual element to the project that could help it stand out to employers. It would also be nice to have the option to superimpose the soft skills data on top of one another so employers can compare their employees’ development. 
+I would like to add a feature where you can view the employee data as a radar chart. This would add a visual element to the project that could help it stand out to employers. It would also be nice to have the option to superimpose the soft skills data on top of one another so employers can compare their employees’ development. 
 
 Another idea that I had was to make an evaluation form with questions and a formula that would help determine the average score for each soft skill as opposed to employers assigning arbitrary values. This would add another layer of complexity to the project. 
-
-One final idea would be to persist the data to a cloud based database, such as GCP, AWS or Azure. This would mean the app would be able to be deployed on the internet without users having to manage their own database locally, and therefore increase its usability. 
 
 **ERD diagram**
 
